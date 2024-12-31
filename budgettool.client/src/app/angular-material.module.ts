@@ -6,6 +6,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginator } from "@angular/material/paginator";
 import { MatSortModule } from "@angular/material/sort";
 import { MatInputModule } from "@angular/material/input";
+import { ReactiveFormsModule } from "@angular/forms";
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
 
@@ -17,7 +19,9 @@ import { MatInputModule } from "@angular/material/input";
     MatTableModule,
     MatPaginator,
     MatSortModule,
-    MatInputModule
+    MatInputModule,
+    ReactiveFormsModule,
+    MatCardModule
   ],
 
   // Lists modules that will be exported with this module, so they don't have to
@@ -29,7 +33,9 @@ import { MatInputModule } from "@angular/material/input";
     MatTableModule,
     MatPaginator,
     MatSortModule,
-    MatInputModule
+    MatInputModule,
+    ReactiveFormsModule,
+    MatCardModule
   ]
 })
 

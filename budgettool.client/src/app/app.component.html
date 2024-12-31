@@ -1,9 +1,52 @@
-<h1>LIT Budgeting Tool</h1>
+<mat-toolbar color="primary">LIT Budgeting Tool</mat-toolbar>
 
-<h2>January 2025</h2>
+<div class="container">
 
-<div>
-  <mat-table #table>
+  <!-- Income table -->
+  <mat-card> <app-income-table [(items)]="incomeItems" (itemsChange)="calculateTotals()"></app-income-table> </mat-card>
 
-  </mat-table>
+  <!-- Expenses table 
+  <mat-card>
+    <h2>Expenses</h2>
+    <table mat-table [dataSource]="expenseDataSource" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Description </th>
+        <td mat-cell *matCellDef="let element">
+          <input matInput [(ngModel)]="element.description">
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef> Amount </th>
+        <td mat-cell *matCellDef="let element">
+          <input matInput type="number" [(ngModel)]="element.amount" (ngModelChange)="calculateTotals()">
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button color="warn" (click)="removeExpense(element)">Remove</button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="expenseDisplayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: expenseDisplayedColumns;"></tr>
+    </table>
+    <button mat-raised-button (click)="addExpense()">Add Expense</button>
+  </mat-card>
+
+  -->
+
+  <!-- Summary
+  <mat-card>
+    <h2>Summary</h2>
+    <p>Total Income: {{ totalIncome }}</p>
+    <p>Total Expenses: {{ totalExpenses }}</p>
+    <p [ngStyle]="{'color': getRemainingColor()}">Remaining Budget: {{ remainingBudget }}</p>
+  </mat-card>
+
+  -->
 </div>
+
