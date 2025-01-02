@@ -24,7 +24,7 @@ export class ExpenseTableComponent {
   /**
    * The names of the table columns.
    */
-  public displayedColumns: string[] = ['name', 'amountPlanned', 'amountRemaining'];
+  public displayedColumns: string[] = ['name', 'amountPlanned', 'amountRemaining', 'actions'];
 
   /**
    * Initializes the data source with a copy of the items array.
