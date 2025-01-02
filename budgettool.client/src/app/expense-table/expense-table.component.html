@@ -1,4 +1,4 @@
-<h2>Income</h2>
+<h2>Expenses</h2>
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
@@ -6,7 +6,7 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
-  <!-- Due to a quirk, have to wrap these in a table row element -->
+  <!-- TODO: Define columns -->
   <tr>
     <!-- Name column -->
     <ng-container matColumnDef="name">
@@ -24,11 +24,11 @@
       </td>
     </ng-container>
 
-    <!-- Amount Received column -->
-    <ng-container matColumnDef="amountReceived">
-      <th mat-header-cell *matHeaderCellDef>Amount Received</th>
+    <!-- Amount Remaining column -->
+    <ng-container matColumnDef="amountRemaining">
+      <th mat-header-cell *matHeaderCellDef>Amount Remaining</th>
       <td mat-cell *matCellDef="let item">
-        <input matInput type="number" [(ngModel)]="item.amountReceived" (ngModelChange)="calculateTotals()">
+        <input matInput type="number" [(ngModel)]="item.amountRemaining" (ngModelChange)="calculateTotals()">
       </td>
     </ng-container>
 

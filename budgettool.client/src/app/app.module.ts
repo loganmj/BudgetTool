@@ -8,11 +8,13 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { AngularMaterialModule } from './angular-material.module';
 import { IncomeTableComponent } from './income-table/income-table.component';
 import { FormsModule } from '@angular/forms';
+import { ExpenseTableComponent } from './expense-table/expense-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    IncomeTableComponent
+    IncomeTableComponent,
+    ExpenseTableComponent
   ],
   imports: [
     BrowserModule,
