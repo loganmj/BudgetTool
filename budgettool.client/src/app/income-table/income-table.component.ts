@@ -1,7 +1,6 @@
 // Import IncomeFormComponent and necessary modules
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IncomeItem } from '../../data/IncomeItem';
-import { ILineItem } from '../../data/ILineItem';
 
 @Component({
   selector: 'app-income-table',
@@ -50,7 +49,7 @@ export class IncomeTableComponent {
    * Adds a new object to the data array and emits the updated array.
    */
   public addItem() {
-    this.items.push(new IncomeItem(this.items.length + 1, '', 0, 0));
+    this.items.push(new IncomeItem(this.items.length + 1, 'New Income', 0, 0));
     this.dataSource = [...this.items];
     this.itemsChange.emit(this.items);
   }
@@ -69,7 +68,7 @@ export class IncomeTableComponent {
   }
 
   /**
-   * Emits the updated itesm array when any of the values changes.
+   * Emits the updated income array when any of the values changes.
    */
   public calculateTotals() {
     this.itemsChange.emit(this.items);

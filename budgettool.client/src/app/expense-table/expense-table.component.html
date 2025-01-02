@@ -1,1 +1,52 @@
-<p>expense-table works!</p>
+<h2>Expenses</h2>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!-- Configure table -->
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  <!-- TODO: Define columns -->
+  <tr>
+    <!-- Name column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let item">
+        <input matInput [(ngModel)]="item.name">
+      </td>
+    </ng-container>
+
+    <!-- Amount Planned column -->
+    <ng-container matColumnDef="amountPlanned">
+      <th mat-header-cell *matHeaderCellDef>Amount Planned</th>
+      <td mat-cell *matCellDef="let item">
+        <input matInput type="number" [(ngModel)]="item.amountPlanned" (ngModelChange)="calculateTotals()">
+      </td>
+    </ng-container>
+
+    <!-- Amount Remaining column -->
+    <ng-container matColumnDef="amountRemaining">
+      <th mat-header-cell *matHeaderCellDef>Amount Remaining</th>
+      <td mat-cell *matCellDef="let item">
+        <input matInput type="number" [(ngModel)]="item.amountRemaining" (ngModelChange)="calculateTotals()">
+      </td>
+    </ng-container>
+
+    <!-- Actions column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let item">
+        <button mat-raised-button color="warn" (click)="removeItem(item)">Remove</button>
+      </td>
+    </ng-container>
+  </tr>
+
+</table>
+
+<!-- Table toolbar -->
+<div class="toolbar">
+
+  <!-- Add item button -->
+  <button mat-raised-button (click)="addItem()">Add</button>
+
+</div>
