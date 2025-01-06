@@ -8,6 +8,8 @@ import { MatSortModule } from "@angular/material/sort";
 import { MatInputModule } from "@angular/material/input";
 import { ReactiveFormsModule } from "@angular/forms";
 import { MatCardModule } from '@angular/material/card';
+import { MatOptionModule } from "@angular/material/core";
+import { MatSelectModule } from "@angular/material/select";
 
 @NgModule({
 
@@ -21,7 +23,9 @@ import { MatCardModule } from '@angular/material/card';
     MatSortModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatCardModule
+    MatCardModule,
+    MatOptionModule,
+    MatSelectModule
   ],
 
   // Lists modules that will be exported with this module, so they don't have to
@@ -35,7 +39,9 @@ import { MatCardModule } from '@angular/material/card';
     MatSortModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatCardModule
+    MatCardModule,
+    MatOptionModule,
+    MatSelectModule
   ]
 })
 

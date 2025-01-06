@@ -31,6 +31,11 @@ export class ExpenseTableComponent {
    */
   public dataSource = [...this.items];
 
+  /**
+   * Keeps track of the unique groups in the expense array.
+   */
+  public groups: string[] = [];
+
   // #endregion
 
   // #region Constructors
@@ -47,7 +52,7 @@ export class ExpenseTableComponent {
   /**
    * Adds a new object to the data array and emits the updated array.
    */
-  public addItem() {
+  public addItem(): void {
     this.items.push(new ExpenseItem(this.items.length + 1, 'New Expense', 0, 0, ''));
     this.dataSource = [...this.items];
     this.itemsChange.emit(this.items);
@@ -57,7 +62,7 @@ export class ExpenseTableComponent {
    * Removes an object from the data array and emits the updated array.
    * @param item
    */
-  public removeItem(item: ExpenseItem) {
+  public removeItem(item: ExpenseItem): void {
     const index = this.items.indexOf(item);
     if (index >= 0) {
       this.items.splice(index, 1);
@@ -69,7 +74,7 @@ export class ExpenseTableComponent {
   /**
    * Emits the updated expense array when any of the values changes.
    */
-  public calculateTotals() {
+  public calculateTotals(): void {
     this.itemsChange.emit(this.items);
   }
 

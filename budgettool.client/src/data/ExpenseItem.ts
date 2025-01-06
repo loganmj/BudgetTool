@@ -11,26 +11,26 @@ export class ExpenseItem implements ILineItem {
   public name: string;
   public amountPlanned: number;
   public amountRemaining: number;
-  public category: string;
+  public group: string;
 
   // #endregion
 
   // #region Constructors
 
   /**
-   * Constructs an expense item with default amountRemaining and category.
+   * Constructs an expense item with default amountRemaining and group.
    * @param id
    * @param name
    * @param amountPlanned
    * @param amountRemaining
-   * @param category
+   * @param group
    */ 
-  public constructor(id: number, name: string, amountPlanned: number, amountRemaining?: number, category?: string) {
+  public constructor(id: number, name: string, amountPlanned: number, amountRemaining?: number, group?: string) {
     this.id = id;
     this.name = name;
     this.amountPlanned = amountPlanned;
     this.amountRemaining = amountRemaining || amountPlanned;
-    this.category = category || '';
+    this.group = group || '';
   }
 
   // #endregion

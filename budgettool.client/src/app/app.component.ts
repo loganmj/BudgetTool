@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { IncomeItem } from '../data/IncomeItem';
 import { ILineItem } from '../data/ILineItem';
 import { ExpenseItem } from '../data/ExpenseItem';
+import { ExpenseTableComponent } from './expense-table/expense-table.component';
 
 @Component({
   selector: 'app-root',
@@ -31,13 +32,20 @@ export class AppComponent {
 
   // #region Public Methods
 
-  calculateTotals() {
+  /**
+   * Calculates the total income, total expenses, and remaining budget.
+   */
+  public calculateTotals(): void {
     this.totalIncome = this.incomeItems.reduce((sum, item) => sum + item.amountPlanned, 0);
     this.totalExpenses = this.expenseItems.reduce((sum, item) => sum + item.amountPlanned, 0);
     this.remainingBudget = this.totalIncome - this.totalExpenses;
   }
 
-  getRemainingColor() {
+  /**
+   * Determines the text color for the remaining budget based on its value.
+   * @returns
+   */
+  public getRemainingColor(): string {
     if (this.remainingBudget === 0) {
       return '#32CD32';
     } else if (this.remainingBudget > 0) {
