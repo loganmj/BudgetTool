@@ -10,13 +10,13 @@
         <h3>Planned</h3>
         <p>Total Planned Income: {{totalPlannedIncome}}</p>
         <p>Total Planned Expenses: {{totalPlannedExpenses}}</p>
-        <p>Remaining Planned Budget: {{remainingPlannedBudget}}</p>
+        <p [ngClass]="getAmountRemainingTextClass(remainingPlannedBudget)">Remaining Planned Budget: {{remainingPlannedBudget}}</p>
       </div>
       <div>
         <h3>Actual</h3>
         <p>Total Actual Income: {{totalActualIncome}}</p>
         <p>Total Actual Expenses: {{totalActualExpenses}}</p>
-        <p>Remaining Actual Budget: {{remainingActualBudget}}</p>
+        <p [ngClass]="getAmountRemainingTextClass(remainingActualBudget)">Remaining Actual Budget: {{remainingActualBudget}}</p>
       </div>
     </div>
   </mat-card>

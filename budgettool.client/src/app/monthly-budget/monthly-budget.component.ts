@@ -142,5 +142,21 @@ export class MonthlyBudgetComponent {
     return this.getRemainingBudgetTextColor(this.remainingActualBudget);
   }
 
+  /**
+   * Gets the class name for the amount remaining text, based on its value.
+   */ 
+  public getAmountRemainingTextClass(value: number): string {
+
+    if (value > 0) {
+      return 'amount-remaining-underbudget';
+    }
+
+    if (value < 0) {
+      return 'amount-remaining-overbudget';
+    }
+
+    return 'amount-remaining-balanced';
+  }
+
   // #endregion
 }
