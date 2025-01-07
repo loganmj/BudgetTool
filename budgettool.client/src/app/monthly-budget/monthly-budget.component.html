@@ -1,6 +1,25 @@
-<h1>{{monthYear.month}}, {{monthYear.year}}</h1>
+<h1>{{monthYear.month | monthText}}, {{monthYear.year}}</h1>
 
 <div class="container">
+
+  <!-- Summary card -->
+  <mat-card class="budget-summary-card">
+    <h2>Summary</h2>
+    <div class="budget-summary-grid">
+      <div>
+        <h3>Planned</h3>
+        <p>Total Planned Income: {{totalPlannedIncome}}</p>
+        <p>Total Planned Expenses: {{totalPlannedExpenses}}</p>
+        <p>Remaining Planned Budget: {{remainingPlannedBudget}}</p>
+      </div>
+      <div>
+        <h3>Actual</h3>
+        <p>Total Actual Income: {{totalActualIncome}}</p>
+        <p>Total Actual Expenses: {{totalActualExpenses}}</p>
+        <p>Remaining Actual Budget: {{remainingActualBudget}}</p>
+      </div>
+    </div>
+  </mat-card>
 
   <!-- Income table -->
   <mat-card class="line-item-table">
@@ -12,11 +31,4 @@
     <app-expense-table [(items)]="expenseItems" (itemsChange)="calculateTotals()"></app-expense-table>
   </mat-card>
 
-  <!-- Summary -->
-  <mat-card class="budget-summary-card">
-    <h2>Summary</h2>
-    <p>Total Planned Income: {{ totalPlannedIncome }}</p>
-    <p>Total Planned Expenses: {{ totalPlannedExpenses }}</p>
-    <p [ngStyle]="{'color': getRemainingPlannedTextColor()}">Remaining Planned Budget: {{ remainingPlannedBudget }}</p>
-  </mat-card>
 </div>

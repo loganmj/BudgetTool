@@ -89,16 +89,8 @@ export class ExpenseTableComponent {
   }
 
   /**
-   * Gets the text color string based on the amount remaining in the expense item.
+   * Gets the text class string based on the amount remaining in the expense item.
    */ 
-  public getAmountRemainingTextColor(item: ExpenseItem): string{
-    if (item.amountRemaining >= 0) {
-      return this.TEXT_COLOR_BALANCED_BUDGET;
-    }
-
-    return this.TEXT_COLOR_OVERBUDGET;
-  }
-
   public getAmountRemainingTextClass(item: ExpenseItem): string {
     if (item.amountRemaining >= 0) {
       return 'amount-remaining-ok';

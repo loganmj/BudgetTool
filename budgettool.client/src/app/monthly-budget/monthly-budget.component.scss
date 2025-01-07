@@ -1,3 +1,5 @@
+@import '../../styles.scss';
+
 .line-item-table {
    display: flex;
    margin: 20px;
@@ -6,4 +8,22 @@
 .budget-summary-card {
    display: flex;
    margin: 20px;
+}
+
+.amount-remaining-balanced {
+   color: $color-balanced-budget;
+}
+
+.amount-remaining-overbudget {
+   color: $color-over-budget;
+}
+
+.amount-remaining-underbudget {
+   color: $color-under-budget;
+}
+
+.budget-summary-grid {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 20px;
 }

@@ -9,6 +9,7 @@ import { IncomeTableComponent } from './income-table/income-table.component';
 import { FormsModule } from '@angular/forms';
 import { ExpenseTableComponent } from './expense-table/expense-table.component';
 import { MonthlyBudgetComponent } from './monthly-budget/monthly-budget.component';
+import { MonthTextPipe } from '../data/MonthTextPipe';
 
 @NgModule({
   declarations: [
@@ -21,8 +22,10 @@ import { MonthlyBudgetComponent } from './monthly-budget/monthly-budget.componen
     BrowserModule,
     AppRoutingModule,
     AngularMaterialModule,
-    FormsModule
+    FormsModule,
+    MonthTextPipe
   ],
+  exports: [MonthTextPipe],
   providers: [
     provideAnimationsAsync(),
     provideHttpClient()
