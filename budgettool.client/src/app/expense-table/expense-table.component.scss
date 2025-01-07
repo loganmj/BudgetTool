@@ -7,3 +7,11 @@ mat-table {
 .toolbar {
   margin: 20px;
 }
+
+.amount-remaining-ok {
+   color: $color-balanced-budget;
+}
+
+.amount-remaining-bad {
+   color: $color-over-budget;
+}
