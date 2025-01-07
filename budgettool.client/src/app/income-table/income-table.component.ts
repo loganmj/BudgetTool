@@ -49,9 +49,9 @@ export class IncomeTableComponent {
    * Adds a new object to the data array and emits the updated array.
    */
   public addItem() {
-    this.items.push(new IncomeItem(this.items.length + 1, 'New Income', 0, 0));
+    this.items.push(new IncomeItem());
     this.dataSource = [...this.items];
-    this.itemsChange.emit(this.items);
+    this.onItemsChanged();
   }
 
   /**
@@ -63,14 +63,14 @@ export class IncomeTableComponent {
     if (index >= 0) {
       this.items.splice(index, 1);
       this.dataSource = [...this.items];
-      this.itemsChange.emit(this.items);
+      this.onItemsChanged();
     }
   }
 
   /**
    * Emits the updated income array when any of the values changes.
    */
-  public calculateTotals() {
+  public onItemsChanged(): void {
     this.itemsChange.emit(this.items);
   }
 

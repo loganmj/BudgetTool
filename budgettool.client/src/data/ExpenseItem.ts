@@ -7,31 +7,30 @@ export class ExpenseItem implements ILineItem {
 
   // #region Properties
 
-  public id: number;
-  public name: string;
-  public amountPlanned: number;
-  public amountRemaining: number;
-  public group: string;
-
-  // #endregion
-
-  // #region Constructors
+  /**
+   * The unique identifier of the line item.
+   */ 
+  public id: number = 0;
 
   /**
-   * Constructs an expense item with default amountRemaining and group.
-   * @param id
-   * @param name
-   * @param amountPlanned
-   * @param amountRemaining
-   * @param group
-   */ 
-  public constructor(id: number, name: string, amountPlanned: number, amountRemaining?: number, group?: string) {
-    this.id = id;
-    this.name = name;
-    this.amountPlanned = amountPlanned;
-    this.amountRemaining = amountRemaining || amountPlanned;
-    this.group = group || '';
-  }
+   * The name of the expense item.
+   */
+  public name: string = 'New Expense';
+
+  /**
+   * The planned value for the expense item.
+   */
+  public amountPlanned: number = 0;
+
+  /**
+   * The amount remaining after spending.
+   */
+  public amountRemaining: number = 0;
+
+  /**
+   * The expense item organizational group name.
+   */
+  public group: string = 'Expenses';
 
   // #endregion
 }

@@ -12,7 +12,7 @@
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Name</th>
       <td mat-cell *matCellDef="let item">
-        <input matInput [(ngModel)]="item.name">
+        <input matInput [(ngModel)]="item.name" (ngModelChange)="onItemsChanged()">
       </td>
     </ng-container>
 
@@ -20,7 +20,7 @@
     <ng-container matColumnDef="amountPlanned">
       <th mat-header-cell *matHeaderCellDef>Amount Planned</th>
       <td mat-cell *matCellDef="let item">
-        <input matInput type="number" [(ngModel)]="item.amountPlanned" (ngModelChange)="calculateTotals()">
+        <input matInput type="number" [(ngModel)]="item.amountPlanned" (ngModelChange)="onItemsChanged()">
       </td>
     </ng-container>
 
@@ -28,7 +28,7 @@
     <ng-container matColumnDef="amountReceived">
       <th mat-header-cell *matHeaderCellDef>Amount Received</th>
       <td mat-cell *matCellDef="let item">
-        <input matInput type="number" [(ngModel)]="item.amountReceived" (ngModelChange)="calculateTotals()">
+        <input matInput type="number" [(ngModel)]="item.amountReceived" (ngModelChange)="onItemsChanged()">
       </td>
     </ng-container>
 

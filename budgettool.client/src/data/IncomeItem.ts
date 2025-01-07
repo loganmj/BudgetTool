@@ -7,29 +7,30 @@ export class IncomeItem implements ILineItem {
 
   // #region Properties
 
-  public id: number;
-  public name: string;
-  public amountPlanned: number;
-  public amountReceived: number;
-
-  // #endregion
-
-  // #region Constructors
+  /**
+   * The unique identifier of the income item.
+   */
+  public id: number = 0;
 
   /**
-   * Constructs an income item with the designated data.
-   * @param id
-   * @param name
-   * @param amountPlanned
-   * @param amountReceived
+   * The name of the income item.
    */
-  constructor(id: number, name: string, amountPlanned: number, amountReceived: number)
-  {
-    this.id = id;
-    this.name = name;
-    this.amountPlanned = amountPlanned;
-    this.amountReceived = amountReceived;
-  }
+  public name: string = 'New Income';
+
+  /**
+   * The planned value for the income item.
+   */
+  public amountPlanned: number = 0;
+
+  /**
+   * The amount received for the income item.
+   */
+  public amountReceived: number = 0;
+
+  /**
+   * The income item organizational group name.
+   */
+  public group: string = 'Income';
 
   // #endregion
 }
