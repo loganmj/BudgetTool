@@ -1,23 +1,4 @@
 <mat-toolbar color="primary">LIT Budgeting Tool</mat-toolbar>
 
-<div class="container">
-
-  <!-- Income table -->
-  <mat-card class="line-item-table">
-    <app-income-table [(items)]="incomeItems" (itemsChange)="calculateTotals()"></app-income-table>
-  </mat-card>
-
-  <!-- Expenses table -->
-  <mat-card class="line-item-table">
-    <app-expense-table [(items)]="expenseItems" (itemsChange)="calculateTotals()"></app-expense-table>
-  </mat-card>
-
-  <!-- Summary -->
-  <mat-card>
-    <h2>Summary</h2>
-    <p>Total Income: {{ totalIncome }}</p>
-    <p>Total Expenses: {{ totalExpenses }}</p>
-    <p [ngStyle]="{'color': getRemainingColor()}">Remaining Budget: {{ remainingBudget }}</p>
-  </mat-card>
-</div>
+<monthly-budget></monthly-budget>
 

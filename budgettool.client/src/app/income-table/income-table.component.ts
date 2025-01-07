@@ -1,6 +1,6 @@
 // Import IncomeFormComponent and necessary modules
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { IncomeItem } from '../../data/IncomeItem';
+import { ILineItem } from '../../data/ILineItem';
 
 @Component({
   selector: 'app-income-table',
@@ -15,12 +15,12 @@ export class IncomeTableComponent {
   /**
    * Defines an input property that will receive the array of IncomeItem objects from the parent component.
    */
-  @Input() items: IncomeItem[] = [];
+  @Input() items: ILineItem[] = [];
 
   /**
    * Defines an output property that will emit events to the parent component when the array changes.
    */
-  @Output() itemsChange = new EventEmitter<IncomeItem[]>();
+  @Output() itemsChange = new EventEmitter<ILineItem[]>();
 
   /**
    * The names of the table columns.
@@ -49,7 +49,7 @@ export class IncomeTableComponent {
    * Adds a new object to the data array and emits the updated array.
    */
   public addItem() {
-    this.items.push(new IncomeItem());
+    this.items.push({ id: this.items.length + 1, name: 'New Income', amountPlanned: 0, amountActual: 0, group: 'Income' });
     this.dataSource = [...this.items];
     this.onItemsChanged();
   }
@@ -58,7 +58,7 @@ export class IncomeTableComponent {
    * Removes an object from the data array and emits the updated array.
    * @param item
    */
-  public removeItem(item: IncomeItem) {
+  public removeItem(item: ILineItem) {
     const index = this.items.indexOf(item);
     if (index >= 0) {
       this.items.splice(index, 1);

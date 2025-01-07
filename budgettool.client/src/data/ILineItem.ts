@@ -21,6 +21,11 @@ export interface ILineItem {
   amountPlanned: number;
 
   /**
+   * The actual value for the line item.
+   */ 
+  amountActual: number;
+
+  /**
    * The line item organizational group name.
    */ 
   group: string;

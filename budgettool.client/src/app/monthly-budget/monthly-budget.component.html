@@ -1,1 +1,22 @@
-<p>monthly-budget works!</p>
+<h1>{{monthYear.month}}, {{monthYear.year}}</h1>
+
+<div class="container">
+
+  <!-- Income table -->
+  <mat-card class="line-item-table">
+    <app-income-table [(items)]="incomeItems" (itemsChange)="calculateTotals()"></app-income-table>
+  </mat-card>
+
+  <!-- Expenses table -->
+  <mat-card class="line-item-table">
+    <app-expense-table [(items)]="expenseItems" (itemsChange)="calculateTotals()"></app-expense-table>
+  </mat-card>
+
+  <!-- Summary -->
+  <mat-card>
+    <h2>Summary</h2>
+    <p>Total Planned Income: {{ totalPlannedIncome }}</p>
+    <p>Total Planned Expenses: {{ totalPlannedExpenses }}</p>
+    <p [ngStyle]="{'color': getRemainingPlannedTextColor()}">Remaining Planned Budget: {{ remainingPlannedBudget }}</p>
+  </mat-card>
+</div>

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ExpenseItem } from '../../data/ExpenseItem';
+import { ILineItem } from '../../data/ILineItem';
 
 @Component({
   selector: 'app-expense-table',
@@ -14,12 +14,12 @@ export class ExpenseTableComponent {
   /**
    * Defines an input property that will receive the array of ExpenseItem objects from the parent component.
    */
-  @Input() items: ExpenseItem[] = [];
+  @Input() items: ILineItem[] = [];
 
   /**
    * Defines an output property that will emit events to the parent component when the expense array changes.
    */
-  @Output() itemsChange = new EventEmitter<ExpenseItem[]>();
+  @Output() itemsChange = new EventEmitter<ILineItem[]>();
 
   /**
    * The names of the table columns.
@@ -48,16 +48,16 @@ export class ExpenseTableComponent {
    * Adds a new object to the data array and emits the updated array.
    */
   public addItem(): void {
-    this.items.push(new ExpenseItem);
+    this.items.push({ id: this.items.length + 1, name: 'New Expense', amountPlanned: 0, amountActual: 0, group: 'Expenses' });
     this.dataSource = [...this.items];
     this.onItemsChanged();
   }
 
   /**
    * Removes an object from the data array and emits the updated array.
-   * @param expense The ExpenseItem object to remove.
+   * @param item
    */
-  public removeItem(item: ExpenseItem): void {
+  public removeItem(item: ILineItem): void {
     const index = this.items.indexOf(item);
     if (index >= 0) {
       this.items.splice(index, 1);
