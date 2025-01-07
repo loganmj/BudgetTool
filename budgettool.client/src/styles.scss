@@ -2,3 +2,8 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+// Colors denoting the status of a budget
+$color-balanced-budget: #FF4500;
+$color-over-budget: #FF0000;
+$color-under-budget: #FFD700;
