@@ -99,5 +99,13 @@ export class ExpenseTableComponent {
     return this.TEXT_COLOR_OVERBUDGET;
   }
 
+  public getAmountRemainingTextClass(item: ExpenseItem): string {
+    if (item.amountRemaining >= 0) {
+      return 'amount-remaining-ok';
+    }
+
+    return 'amount-remaining-bad';
+  }
+
   // #endregion
 }
