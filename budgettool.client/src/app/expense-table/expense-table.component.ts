@@ -5,7 +5,7 @@ import { ExpenseItem } from '../../data/ExpenseItem';
   selector: 'app-expense-table',
   standalone: false,
   templateUrl: './expense-table.component.html',
-  styleUrl: './expense-table.component.css'
+  styleUrl: './expense-table.component.scss'
 })
 export class ExpenseTableComponent {
 

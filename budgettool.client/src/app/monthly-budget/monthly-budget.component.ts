@@ -11,7 +11,7 @@ import { ExpenseItem } from '../../data/ExpenseItem';
   selector: 'monthly-budget',
   standalone: false,
   templateUrl: './monthly-budget.component.html',
-  styleUrl: './monthly-budget.component.css'
+  styleUrl: './monthly-budget.component.scss'
 })
 export class MonthlyBudgetComponent {
 

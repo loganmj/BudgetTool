@@ -6,7 +6,7 @@ import { ILineItem } from '../../data/ILineItem';
   selector: 'app-income-table',
   templateUrl: './income-table.component.html',
   standalone: false,
-  styleUrls: ['./income-table.component.css']
+  styleUrls: ['./income-table.component.scss']
 })
 export class IncomeTableComponent {
 
