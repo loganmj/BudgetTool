@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ILineItem } from '../../data/ILineItem';
+import { ExpenseItem } from '../../data/ExpenseItem';
 
 @Component({
   selector: 'app-expense-table',
@@ -9,22 +9,29 @@ import { ILineItem } from '../../data/ILineItem';
 })
 export class ExpenseTableComponent {
 
+  // #region Constants
+
+  private TEXT_COLOR_OVERBUDGET: string = '#FF4500';
+  private TEXT_COLOR_BALANCED_BUDGET: string = '#32CD32';
+
+  // #endregion
+
   // #region Properties
 
   /**
    * Defines an input property that will receive the array of ExpenseItem objects from the parent component.
    */
-  @Input() items: ILineItem[] = [];
+  @Input() items: ExpenseItem[] = [];
 
   /**
    * Defines an output property that will emit events to the parent component when the expense array changes.
    */
-  @Output() itemsChange = new EventEmitter<ILineItem[]>();
+  @Output() itemsChange = new EventEmitter<ExpenseItem[]>();
 
   /**
    * The names of the table columns.
    */
-  public displayedColumns: string[] = ['name', 'amountPlanned', 'amountRemaining', 'actions'];
+  public displayedColumns: string[] = ['name', 'amountPlanned', 'amountActual', 'amountRemaining', 'actions'];
 
   /**
    * Initializes the data source with a copy of the items array.
@@ -48,7 +55,7 @@ export class ExpenseTableComponent {
    * Adds a new object to the data array and emits the updated array.
    */
   public addItem(): void {
-    this.items.push({ id: this.items.length + 1, name: 'New Expense', amountPlanned: 0, amountActual: 0, group: 'Expenses' });
+    this.items.push(new ExpenseItem());
     this.dataSource = [...this.items];
     this.onItemsChanged();
   }
@@ -57,7 +64,7 @@ export class ExpenseTableComponent {
    * Removes an object from the data array and emits the updated array.
    * @param item
    */
-  public removeItem(item: ILineItem): void {
+  public removeItem(item: ExpenseItem): void {
     const index = this.items.indexOf(item);
     if (index >= 0) {
       this.items.splice(index, 1);
@@ -67,10 +74,29 @@ export class ExpenseTableComponent {
   }
 
   /**
+   * Updates the amount remaining for an expense item.
+   */
+  public updateAmountRemaining(item: ExpenseItem): void {
+    item.amountRemaining = item.amountPlanned - item.amountActual;
+    this.onItemsChanged();
+  }
+
+  /**
    * Emits the updated expense array when any of the values changes.
    */
   public onItemsChanged(): void {
     this.itemsChange.emit(this.items);
+  }
+
+  /**
+   * Gets the text color string based on the amount remaining in the expense item.
+   */ 
+  public getAmountRemainingTextColor(item: ExpenseItem): string{
+    if (item.amountRemaining >= 0) {
+      return this.TEXT_COLOR_BALANCED_BUDGET;
+    }
+
+    return this.TEXT_COLOR_OVERBUDGET;
   }
 
   // #endregion

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ITransaction } from '../../data/ITransaction';
 import { MonthYear } from '../../data/MonthYear';
 import { ILineItem } from '../../data/ILineItem';
+import { ExpenseItem } from '../../data/ExpenseItem';
 
 /**
  * This component contains the tables and forms to manage a monthly budget.
@@ -16,8 +17,8 @@ export class MonthlyBudgetComponent {
 
   // #region Constants
 
-  private TEXT_COLOR_OVERBUDGET: string = '#FFD700';
-  private TEXT_COLOR_UNDERBUDGET: string = '#FF4500';
+  private TEXT_COLOR_OVERBUDGET: string = '#FF4500';
+  private TEXT_COLOR_UNDERBUDGET: string = '#FFD700';
   private TEXT_COLOR_BALANCED_BUDGET: string = '#32CD32';
 
   // #endregion
@@ -37,7 +38,7 @@ export class MonthlyBudgetComponent {
   /**
    * The array of expense items.
    */
-  public expenseItems: ILineItem[] = [];
+  public expenseItems: ExpenseItem[] = [];
 
   /**
    * The array of Transaction items.

@@ -18,9 +18,17 @@
 
     <!-- Amount Planned column -->
     <ng-container matColumnDef="amountPlanned">
-      <th mat-header-cell *matHeaderCellDef>Amount Planned</th>
+      <th mat-header-cell *matHeaderCellDef>Amount Planned></th>
       <td mat-cell *matCellDef="let item">
-        <input matInput type="number" [(ngModel)]="item.amountPlanned" (ngModelChange)="onItemsChanged()">
+        <input matInput type="number" [(ngModel)]="item.amountPlanned" (ngModelChange)="updateAmountRemaining(item)">
+      </td>
+    </ng-container>
+
+    <!-- Amount Actual column -->
+    <ng-container matColumnDef="amountActual">
+      <th mat-header-cell *matHeaderCellDef>Amount Spent</th> 
+      <td mat-cell *matCellDef="let item">
+        <input matInput type="number" [(ngModel)]="item.amountActual" (ngModelChange)="updateAmountRemaining(item)">
       </td>
     </ng-container>
 
@@ -28,7 +36,7 @@
     <ng-container matColumnDef="amountRemaining">
       <th mat-header-cell *matHeaderCellDef>Amount Remaining</th>
       <td mat-cell *matCellDef="let item">
-        <input matInput type="number" [(ngModel)]="item.amountRemaining" (ngModelChange)="onItemsChanged()">
+        <p [ngStyle]="{'color': getAmountRemainingTextColor(item)}">{{item.amountRemaining}}</p>
       </td>
     </ng-container>
 
@@ -47,6 +55,6 @@
 <div class="toolbar">
 
   <!-- Add item button -->
-  <button mat-raised-button (click)="addItem()">Add</button>
+  <button mat-raised-button (click)="addItem()">Add Expense</button>
 
 </div>

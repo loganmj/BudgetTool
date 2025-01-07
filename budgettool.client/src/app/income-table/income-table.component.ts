@@ -25,7 +25,7 @@ export class IncomeTableComponent {
   /**
    * The names of the table columns.
    */
-  public displayedColumns: string[] = ["name", "amountPlanned", "amountReceived", "actions"];
+  public displayedColumns: string[] = ["name", "amountPlanned", "amountActual", "actions"];
 
   /**
    * Initializes the data source with a copy of the items array.
