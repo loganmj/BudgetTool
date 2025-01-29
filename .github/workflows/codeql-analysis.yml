@@ -16,17 +16,25 @@ jobs:
     strategy:
       matrix:
         language: [ 'javascript', 'typescript', 'csharp' ]
+        dotnet-version: [9.x]
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
+      
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v2
       with:
         languages: ${{ matrix.language }}
+        
+    - name: Setup .NET 9 SDK
+      uses: actions/setup-dotnet@v4
+      with: ${{ matrix.dotnet-version }}    
+      
     - name: Build Code
       run: |
         if [[ "${{ matrix.language }}" == "csharp" ]]; then
           dotnet build --configuration Release
         fi
+        
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
