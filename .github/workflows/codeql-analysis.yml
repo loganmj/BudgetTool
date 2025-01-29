@@ -26,9 +26,10 @@ jobs:
       with:
         languages: ${{ matrix.language }}
         
-    - name: Setup .NET 9 SDK
+    - name: Set up .NET
       uses: actions/setup-dotnet@v4
-      with: ${{ matrix.dotnet-version }}    
+      with:
+        dotnet-version: ${{ matrix.dotnet-version }}   
       
     - name: Build Code
       run: |
