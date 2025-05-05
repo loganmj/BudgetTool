@@ -21,7 +21,7 @@
     "@angular/forms": "^19.0.0",
     "@angular/material": "^19.0.4",
     "@angular/platform-browser": "^19.0.0",
-    "@angular/platform-browser-dynamic": "^19.0.0",
+    "@angular/platform-browser-dynamic": "^19.2.9",
     "@angular/router": "^19.0.0",
     "jest-editor-support": "*",
     "run-script-os": "*",
